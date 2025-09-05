@@ -52,6 +52,15 @@ module.exports = {
         usuario: { id: usuario.id, nome: usuario.nome, email: usuario.email }
       });
     });
+  },
+
+  logout(req, res) {
+    res.clearCookie("token", {
+    httpOnly: true,
+    secure: false, // em prod = true (https)
+    sameSite: "strict"
+  });
+  res.json({ message: "Logout realizado com sucesso!" });
   }
 };
 
