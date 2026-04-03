@@ -4,6 +4,7 @@ const cors = require("cors");
 const app = express();
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
+const notasRoutes = require("./routes/notas");
 const cookieParser = require("cookie-parser");
 
 app.use(express.json());
@@ -16,6 +17,7 @@ app.use(cors({
 
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
+app.use("/api", notasRoutes);
 
 app.listen(5000, () => {
   console.log("Servidor rodando na porta 5000 🚀");
